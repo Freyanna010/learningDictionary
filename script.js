@@ -1,3 +1,31 @@
+function getPercentage(_result, _words){
+     (_result.correctAnswerCount / _words.length) * 100;
+}
+
+function startTraing(_words, _result) {
+  for (let i = 0; i < _words.length; i++) {
+    let userAnsver = prompt(`Переведите слово: ${_words[i].original}`, "");
+    let correctUserAnsver = userAnsver.toLowerCase();
+    if (correctUserAnsver === _words[i].translation) {
+      document.write(notificationMessages.ansver.right, "<br/>");
+      _result.correctAnswerCount++;
+    } else {
+      document.write(notificationMessages.ansver.wrong, "<br/>");
+    }
+  }
+}
+function showResult(_result, _words, _settings, _notificationMessages) {
+  const usserCorrectAnswerPersent = getPercentage(result, words);
+
+  if (usserCorrectAnswerPersent > settings.correctAnswerMinPercent) {
+    alert(notificationMessages.result.Succes);
+  } else {
+    alert(notificationMessages.result.UnSucces);
+  }
+}
+
+
+
 const words = [
   {
     original: "Wassup",
@@ -36,21 +64,5 @@ const result = {
   correctAnswerCount: 0,
 };
 
-for (let i = 0; i < words.length; i++) {
-  let userAnsver = prompt(`Переведите слово: ${words[i].original}`, "");
-  let correctUserAnsver = userAnsver.toLowerCase();
-  if (correctUserAnsver === words[i].translation) {
-    document.write(notificationMessages.ansver.right, "<br/>");
-    result.correctAnswerCount++;
-  } else {
-    document.write(notificationMessages.ansver.wrong, "<br/>");
-  }
-}
-
-const usserCorrectAnswerPersent =
-  (result.correctAnswerCount / words.length) * 100;
-if (usserCorrectAnswerPersent > settings.correctAnswerMinPercent) {
-  alert(notificationMessages.result.Succes);
-} else {
-  alert(notificationMessages.result.UnSucces);
-}
+startTraing(words,result);
+showResult(result, words, settings, notificationMessages);
