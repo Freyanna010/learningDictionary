@@ -11,6 +11,10 @@ const words = [
     original: "Programmer",
     translation: "программист",
   },
+  {
+    original: "Cat",
+    translation: "котик",
+  },
 ];
 
 const notificationMessages = {
