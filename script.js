@@ -1,6 +1,3 @@
-function getPercentage(_result, _words){
-     (_result.correctAnswerCount / _words.length) * 100;
-}
 
 function startTraing(_words, _result) {
   for (let i = 0; i < _words.length; i++) {
@@ -14,6 +11,11 @@ function startTraing(_words, _result) {
     }
   }
 }
+function getPercentage(_result, _words) {
+ return _result.correctAnswerCount / _words.length * 100;
+}
+
+
 function showResult(_result, _words, _settings, _notificationMessages) {
   const usserCorrectAnswerPersent = getPercentage(result, words);
 
