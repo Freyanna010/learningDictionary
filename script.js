@@ -2,11 +2,10 @@ function showHelloMessage(_notificationMessages) {
   alert(_notificationMessages.start);
 }
 
-
 function startTraing(_words, _result) {
   for (let i = 0; i < _words.length; i++) {
     let userAnsver = prompt(`Переведите слово: ${_words[i].original}`, "");
-    let correctUserAnsver = userAnsver.toLowerCase();
+    let correctUserAnsver = userAnsver.trim().toLowerCase();
     if (correctUserAnsver === _words[i].translation) {
       document.write(notificationMessages.ansver.right, "<br/>");
       _result.correctAnswerCount++;
@@ -16,9 +15,8 @@ function startTraing(_words, _result) {
   }
 }
 function getPercentage(_result, _words) {
- return _result.correctAnswerCount / _words.length * 100;
+  return (_result.correctAnswerCount / _words.length) * 100;
 }
-
 
 function showResult(_result, _words, _settings, _notificationMessages) {
   const usserCorrectAnswerPersent = getPercentage(result, words);
@@ -29,8 +27,6 @@ function showResult(_result, _words, _settings, _notificationMessages) {
     document.write(notificationMessages.result.UnSucces);
   }
 }
-
-
 
 const words = [
   {
@@ -72,6 +68,6 @@ const result = {
 };
 
 showHelloMessage(notificationMessages);
-startTraing(words,result);
-getPercentage(result,words);
+startTraing(words, result);
+getPercentage(result, words);
 showResult(result, words, settings, notificationMessages);
