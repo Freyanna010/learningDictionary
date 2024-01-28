@@ -5,7 +5,7 @@ function showHelloMessage(_notificationMessages) {
 function startTraing(_words, _result) {
   for (let i = 0; i < _words.length; i++) {
     let userAnsver = prompt(`Переведите слово: ${_words[i].original}`, "");
-    let correctUserAnsver = userAnsver.toLowerCase();
+    let correctUserAnsver = userAnsver.trim().toLowerCase();
     if (correctUserAnsver === _words[i].translation) {
       document.write(notificationMessages.ansver.right, "<br/>");
       _result.correctAnswerCount++;
