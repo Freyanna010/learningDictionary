@@ -18,9 +18,9 @@ function showResult(_result, _words, _settings, _notificationMessages) {
   const usserCorrectAnswerPersent = getPercentage(result, words);
 
   if (usserCorrectAnswerPersent > settings.correctAnswerMinPercent) {
-    alert(notificationMessages.result.Succes);
+    document.write(notificationMessages.result.Succes);
   } else {
-    alert(notificationMessages.result.UnSucces);
+    document.write(notificationMessages.result.UnSucces);
   }
 }
 
@@ -65,4 +65,5 @@ const result = {
 };
 
 startTraing(words,result);
+getPercentage(result,words);
 showResult(result, words, settings, notificationMessages);
