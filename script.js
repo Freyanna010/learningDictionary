@@ -1,3 +1,7 @@
+function showHelloMessage(_notificationMessages) {
+  alert(_notificationMessages.start);
+}
+
 
 function startTraing(_words, _result) {
   for (let i = 0; i < _words.length; i++) {
@@ -48,6 +52,7 @@ const words = [
 ];
 
 const notificationMessages = {
+  start: "Hi. Do you know English?",
   ansver: {
     right: "Хорошо!",
     wrong: "Мимо(",
@@ -66,6 +71,7 @@ const result = {
   correctAnswerCount: 0,
 };
 
+showHelloMessage(notificationMessages);
 startTraing(words,result);
 getPercentage(result,words);
 showResult(result, words, settings, notificationMessages);
